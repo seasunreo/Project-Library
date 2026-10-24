@@ -39,39 +39,8 @@
             <p class="text-[clamp(1.2rem, 4vw, 2rem)] text-justify">A growing collection of exercises, certification projects, UI experiments, and prototypes created throughout my learning journey. Every project is organized as a record in a data file, making it easy to add new work, update existing entries, and expand the archive without having to modify the underlying markup.</p>
         </div>
         <!--statistics-->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-center justify-between mt-6">
-            <div class="grid grid-cols-2 gap-4 p-2 box-important">
-                <div class="flex justify-center">
-                    <p class="stats-number">07</p>
-                </div>
-                <div class="flex justify-center items-center">
-                    <p class="stats-title">TOTAL PROJECTS</p>
-                </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4 p-2 box">
-                <div class="flex justify-center">
-                    <p class="stats-number">07</p>
-                </div>
-                <div class="flex justify-center items-center">
-                    <p class="stats-title">COMPLETED</p>
-                </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4 p-2 box">
-                <div class="flex justify-center">
-                    <p class="stats-number">07</p>
-                </div>
-                <div class="flex justify-center items-center">
-                    <p class="stats-title">IN PROGRESS</p>
-                </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4 p-2 box">
-                <div class="flex justify-center">
-                    <p class="stats-number">07</p>
-                </div>
-                <div class="flex justify-center items-center">
-                    <p class="stats-title">TECHNOLOGIES</p>
-                </div>
-            </div>
+        <div class="grid grid-cols-1 gap-6 items-center justify-between mt-6">
+            <ul id="stats-list" class="grid grid-cols-1 gap-2 md:grid-cols-4"></ul>
         </div>
     </section>
 
@@ -97,6 +66,7 @@
     
 
 </div>
+<script src="src/data/developer_data.js"></script>
 <script src="src/js/script.js"></script>
 </body>
 </html>
