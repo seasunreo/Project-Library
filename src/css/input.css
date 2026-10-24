@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Manrope:wght@200..800&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -20,6 +20,10 @@
 
 html {
     scroll-behavior: smooth;
+}
+
+section[id] {
+    scroll-margin-top: 6rem;
 }
 
 body {
@@ -50,3 +54,98 @@ h4,
     font-family: var(--display);
 }
 
+.logo {
+    font-family: var(--display);
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.navlink {
+    color: var(--color-mono);
+    font-family: var(--mono);
+    letter-spacing: 1px;
+    font-size: 11.52px;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    color: var(--ink);
+}
+
+.btn1 {
+    background-color: var(--primary);
+    color: var(--background);
+    border: none;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+    font-family: var(--mono);
+    font-size: 14px;
+}
+
+.btn1:hover {
+    background-color: var(--hover);
+    color: var(--ink);
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: var(--background);
+    border-bottom: 1px solid var(--accent);
+}
+
+.hero-content{
+    font-family: var(--display);
+    color: var(--ink);
+    letter-spacing: 1px;
+    line-height: 1;
+    
+}
+
+.subtitle h1{
+    font-family: var(--mono) !important;
+    color: var(--color-mono);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.hero-descriptions p{
+    font-family: var(--body);
+    color: var(--ink);
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 20px;
+}
+
+.box-important{
+    background-color: var(--primary);
+    color: var(--background);
+    border-radius: 4px;
+}
+
+.box{
+    background-color: var(--accent);
+    color: var(--ink);
+    border-radius: 4px;
+}
+
+.stats-number{
+    font-family: var(--display);
+    font-size: 30px;
+}
+
+.stats-title{
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.site-footer {
+    border-top: 1px solid var(--accent);
+    color: var(--color-mono);
+    font-family: var(--mono);
+    font-size: 12px;
+}
