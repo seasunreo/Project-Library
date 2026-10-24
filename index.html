@@ -9,8 +9,7 @@
     <title>reolab</title>
 </head>
 <body class="main-body">
-<div class="max-w-7xl mx-auto px-4 py-8 main-body">
-
+<div class="max-w-7xl mx-auto px-4 py-4 main-body">
     <div class="navbar">
         <div class="flex h-20 items-center justify-between">
             <div class="flex items-center space-x-4">
@@ -18,8 +17,8 @@
             </div>
             <div class="flex items-center space-x-4">
                 <a href="#overview" class="navlink">OVERVIEW</a>
-                <a href="#library" class="navlink">LIBRARY</a>
-                <a href="#about" class="navlink">ABOUT</a>
+                <a href="#library" class="navlink">RECENT</a>
+                <a href="src/pages/library.html" class="navlink">LIBRARY</a>
                 <button id="theme-toggle" class="btn1">
                     <a href="https://xoxo-reo.vercel.app/">PORTFOLIO</a>
                 </button>
@@ -27,8 +26,9 @@
         </div>
     </div>
 
+<main class="flex flex-col gap-25 md:gap-50">
     <!--hero section-->
-    <section id="overview" class="flex min-h-screen flex-col">
+    <section id="overview" class="flex flex-col">
         <div class="subtitle h-30 flex items-end pb-2 text-wrap">
             <h1>REO'S LABORATORY</h1>
         </div>
@@ -44,27 +44,33 @@
         </div>
     </section>
 
-    <section id="library" class="flex min-h-screen flex-col">
+    <section id="library" class="flex flex-col">
         <!--section header-->
-        <div>
-            <h1 class="text-[clamp(4rem,7vw,4rem)]">LIBRARY</h1>
+        <div class="section flex flex-col flex-1 fade-up delay-400 gap-2">
+            <!-- Header -->
+            <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2 mr-5">
+                    <i class="fas fa-folder-open"></i>
+                    <h1 class="text-[clamp(2.5rem,7vw,4rem)] leading-[0.9]">Recent Projects</h1> 
+                </div>
+
+                <a href="/projects" class="flex items-center navlink">
+                    VIEW ALL
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="mt-8 pb-10">
+                <div id="recent-projects-list" class="grid grid-cols-1 gap-4 md:grid-cols-2 "></div>
+            </div>
         </div>
-
     </section>
-
-    <section id="about" class="flex min-h-screen flex-col">
-        <!--section header-->
-        <div>
-            <h1 class="text-[clamp(4rem,7vw,4rem)]">About</h1>
-        </div>
-
-    </section>
-
+    
+</main>
     <footer class="site-footer flex min-h-24 items-center justify-center text-center">
         <p>© 2026 reolab</p>
     </footer>
-    
-
 </div>
 <script src="src/data/developer_data.js"></script>
 <script src="src/js/script.js"></script>

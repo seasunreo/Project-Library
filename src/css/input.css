@@ -68,7 +68,7 @@ h4,
     font-weight: 500;
 }
 
-.navbar a:hover {
+.navlink:hover {
     color: var(--ink);
 }
 
@@ -92,7 +92,7 @@ h4,
 .navbar {
     position: sticky;
     top: 0;
-    z-index: 50;
+    z-index: 1000;
     background-color: var(--background);
     border-bottom: 1px solid var(--accent);
 }
@@ -121,37 +121,37 @@ h4,
 }
 
 .stats-node {
-  justify-content: space-between;
-  gap: 0.01px;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--line);
-  transition: all 0.2s ease;
-  background-color: var(--accent);
+    justify-content: space-between;
+    gap: 0.01px;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--line);
+    transition: all 0.2s ease;
+    background-color: var(--accent);
 }
 
 .stats-node.is-featured{
-  background-color: var(--primary);
-  border-color: var(--primary);
+    background-color: var(--primary);
+    border-color: var(--primary);
 }
 
 .stats-node.is-featured .stats_meta,
 .stats-node.is-featured .stats_submeta{
-  color: var(--background);
+    color: var(--background);
 }
 
 .stats_meta{
-  color: var(--primary);
-  font-family: var(--display);
-  font-size: 29px;
-  align-items: start;
+    color: var(--primary);
+    font-family: var(--display);
+    font-size: 29px;
+    align-items: start;
 }
 
 .stats_submeta{
-  color: var(--ink);
-  font-family: var(--mono);
-  font-size: 14px;
-  font-weight: 400;
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 400;
 }
 
 .site-footer {
@@ -159,4 +159,35 @@ h4,
     color: var(--color-mono);
     font-family: var(--mono);
     font-size: 12px;
+}
+
+a.boxes,
+.boxes {
+  background-color: var(--accent);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0.85rem 0.95rem;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transform: translateZ(0);
+  text-decoration: none;
+  will-change: transform, box-shadow;
+}
+
+a.boxes:hover,
+.boxes:hover {
+  background: var(--hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 22px rgba(42, 29, 34, 0.08);
+  border-color: var(--primary);
+}
+
+.techchip {
+  font-family: var(--mono);
+  color: var(--burgundy);
+  font-size: 0.72rem;
+  font-weight: 600;
+  border: 1px solid var(--ink);
+  border-radius: 5px;
+  padding: 0.35rem 0.7rem;
+  background: var(--paper);
 }
