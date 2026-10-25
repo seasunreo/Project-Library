@@ -1,23 +1,25 @@
-function statEntry(s) {
+function statEntry(s, index) {
     const isFeatured = s.featured === true;
     return `
-        <li class="flex justify-between md:flex-col md:justify-start md:items-start p-2 stats-node${isFeatured ? " is-featured" : ""}">
+        <li class="flex justify-between md:flex-col md:justify-start md:items-start p-2 stats-node fade-in-entry${isFeatured ? " is-featured" : ""}" style="--fade-delay:${300 + index * 100}ms;">
             <span class="stats_meta">${s.value}</span>
             <span class="stats_submeta">${s.label}</span>
         </li>`;
 }
 
-function projectCard(p) {
+function projectCard(p, index = 0) {
     return `
-        <a href="${p.link}" class="boxes flex flex-col md:flex-row  w-full p-3 gap-5 cursor-pointer">
+        <a href="${p.link}" class="boxes flex flex-col md:flex-row items-center w-full p-3 gap-4 cursor-pointer fade-in-entry" style="--fade-delay:${index * 90}ms;">
         <!-- Website Image -->
-        <img
-            src="${p.image}"
-            alt="${p.name}"
-            class="w-full h-27 md:w-37 md:h-27 object-cover rounded-lg shrink-0 items-center"
-        >
+            <div class="w-full md:w-40 shrink-0 items-center">
+                <img
+                src="${p.image}"
+                alt="${p.name}"
+                class="w-full h-48 md:h-28 object-cover rounded-lg"
+                >
+            </div>
         <!-- Project Information -->
-        <div class="flex flex-col min-w-0 flex-1">
+        <div class="grid grid-rows-[auto_auto_1fr_auto] min-w-0 flex-1 w-full self-stretch">
             <!-- Name + Arrow -->
             <div class="flex items-center justify-between gap-2">
             <span class="meta">${p.name}</span>

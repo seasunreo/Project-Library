@@ -33,7 +33,7 @@ const Developer_Data = {
             year: "2025",
             description: "An experimental dashboard interface.",
             tech: ["HTML", "Tailwind CSS", "JavaScript"],
-            image: "public/Personal Project/ui testing.png",
+            image: "/public/Personal Project/ui testing.png",
             link: "#"
         },
         {
@@ -43,7 +43,7 @@ const Developer_Data = {
             year: "2025",
             description: "A responsive weather interface displaying current conditions and forecasts.",
             tech: ["HTML", "CSS", "JavaScript", "API"],
-            image: "public/Personal Project/ui testing.png",
+            image: "/public/Personal Project/ui testing.png",
             link: "#"
         },
         {
@@ -53,7 +53,7 @@ const Developer_Data = {
             year: "2026",
             description: "A modern cafe and bookstore website featuring product displays and a responsive layout.",
             tech: ["HTML", "Tailwind CSS", "JavaScript"],
-            image: "public/Personal Project/ui testing.png",
+            image: "/public/Personal Project/ui testing.png",
             link: "#"
         },
         {
@@ -63,7 +63,7 @@ const Developer_Data = {
             year: "2026",
             description: "A task management interface with organized task lists, priority labels, and progress indicators.",
             tech: ["HTML", "CSS", "JavaScript"],
-            image: "public/Personal Project/ui testing.png",
+            image: "/public/Personal Project/ui testing.png",
             link: "#"
         },
         {
@@ -73,7 +73,7 @@ const Developer_Data = {
             year: "2026",
             description: "An interactive Pokémon catalog with searchable entries, type filters, and detailed character cards.",
             tech: ["React", "Tailwind CSS", "JavaScript", "PokéAPI"],
-            image: "public/Personal Project/ui testing.png",
+            image: "/public/Personal Project/ui testing.png",
             link: "#"
         },
         {
@@ -83,7 +83,7 @@ const Developer_Data = {
             year: "2026",
             description: "A sales analytics dashboard highlighting revenue trends, product performance, and regional sales.",
             tech: ["Power BI", "Power Query", "DAX", "Excel"],
-            image: "public/Personal Project/ui testing.png",
+            image: "/public/Personal Project/ui testing.png",
             link: "#"
         },
         {
@@ -93,7 +93,7 @@ const Developer_Data = {
             year: "2025",
             description: "A collection of login and registration screen concepts exploring form layouts and interaction patterns.",
             tech: ["HTML", "CSS", "JavaScript", "Figma"],
-            image: "public/Personal Project/ui testing.png",
+            image: "/public/Personal Project/ui testing.png",
             link: "#"
         },
         {
@@ -103,7 +103,7 @@ const Developer_Data = {
             year: "2025",
             description: "A bookstore inventory prototype for organizing book records, tracking stock, and managing product details.",
             tech: ["C#", "ASP.NET MVC", "SQL Server", "Bootstrap"],
-            image: "public/Personal Project/ui testing.png",
+            image: "/public/Personal Project/ui testing.png",
             link: "#"
         }
     ]

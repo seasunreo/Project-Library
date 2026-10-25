@@ -28,13 +28,13 @@
 <main class="flex flex-col gap-20 md:gap-25">
     <!--hero section-->
     <section id="overview" class="flex flex-col">
-        <div class="subtitle h-20 flex items-end pb-2 text-wrap">
+        <div class="subtitle h-20 flex items-end pb-2 text-wrap fade-in-entry" style="--fade-delay:0ms;">
             <h1>REO'S LABORATORY</h1>
         </div>
-        <div class="hero-content text-wrap mb-4">
+        <div class="hero-content text-wrap mb-4 fade-in-entry" style="--fade-delay:100ms;">
             <p class="text-[clamp(5rem,7vw,7rem)]">A collection of projects built throughout my learning journey.</p>
         </div>
-        <div class="hero-descriptions text-wrap">
+        <div class="hero-descriptions text-wrap fade-in-entry" style="--fade-delay:200ms;">
             <p class="text-[clamp(1.2rem, 4vw, 2rem)] text-justify">A growing collection of exercises, certification projects, UI experiments, and prototypes created throughout my learning journey. Every project is organized as a record in a data file, making it easy to add new work, update existing entries, and expand the archive without having to modify the underlying markup.</p>
         </div>
         <!--statistics-->
@@ -45,9 +45,9 @@
 
     <section id="library" class="flex flex-col">
         <!--section header-->
-        <div class="section flex flex-col flex-1 fade-up delay-400 gap-2">
+        <div class="section flex flex-col flex-1 gap-2">
             <!-- Header -->
-            <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center justify-between gap-2 fade-in-entry">
                 <div class="flex items-center gap-2 mr-5">
                     <i class="fas fa-folder-open"></i>
                     <h1 class="text-[clamp(2.5rem,7vw,4rem)] leading-[0.9]">Recent Projects</h1> 
@@ -61,17 +61,28 @@
                 </a>
             </div>
             <div class="mt-8 pb-10">
-                <div id="recent-projects-list" class="grid grid-cols-1 gap-4 md:grid-cols-2 "></div>
+                <div id="recent-projects-list" class="grid grid-cols-1 gap-4 md:grid-cols-2"></div>
             </div>
         </div>
     </section>
     
 </main>
-    <footer class="site-footer flex min-h-24 items-center justify-center text-center">
-        <p>© 2026 reolab</p>
-    </footer>
+    <footer class="py-6 text-sm site-footer">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p>
+            &copy; <span id="current-year"></span> xoxo.reo. All rights reserved.
+        </p>
+
+        <p>Built with curiosity and a little bit of code.</p>
+    </div>
+</footer>
 </div>
+
 <script src="src/data/developer_data.js"></script>
 <script src="src/js/script.js"></script>
+<script>
+    document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+</script>
 </body>
 </html>
