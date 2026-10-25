@@ -3,10 +3,6 @@
 **A personal archive of the small projects, coding exercises, UI experiments, and certification work I build while learning web development.**
 
 Browse, search, and filter everything by **collection**, **technology**, **source**, and **status**.
-
-> **Live demo:** _add your deployed URL here_
-> **Main portfolio:** [xoxo-reo.vercel.app](https://xoxo-reo.vercel.app/)
-
 ---
 
 ## About
