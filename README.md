@@ -2,179 +2,43 @@
 
 **A personal archive of the small projects, coding exercises, UI experiments, and certification work I build while learning web development.**
 
-Browse, search, and filter everything by **collection**, **technology**, **source**, and **status**. Every project is stored as structured data and displayed through reusable templates, so adding a new one never requires writing new HTML.
+Browse, search, and filter everything by **collection**, **technology**, **source**, and **status**.
 
 > **Live demo:** _add your deployed URL here_
 > **Main portfolio:** [xoxo-reo.vercel.app](https://xoxo-reo.vercel.app/)
 
 ---
 
+## About
+
+My main portfolio shows a few substantial projects. This library holds everything else, including unfinished work, because it shows how I learn. Every project is stored as structured data and displayed through reusable templates, so adding a new one never requires writing new HTML.
+
 ## Features
 
-- **Data-driven:** projects live in JavaScript data files, not in the markup.
-- **Search:** find projects by **title** or **description**.
-- **Filters:** **collection**, **category**, **technology**, **source**, and **status**, all working together. Filter options are generated from the data.
-- **Sorting:** **newest**, **oldest**, or **A to Z**.
-- **Project pages:** every project gets its own page with details, images, and links.
-- **Live statistics:** total, completed, in progress, archived, and technologies, all calculated from the data.
-- **Safe rendering:** all metadata is escaped before it is inserted into HTML, and only `http(s)` links are accepted.
-- **Graceful fallbacks:** missing thumbnails, images, or links never show broken images or empty buttons.
-- **Responsive and accessible:** semantic HTML, keyboard-friendly controls, and a mobile navigation menu.
+- **Search** by title or description
+- **Filters** for collection, category, technology, source, and status
+- **Sorting** by newest, oldest, or A to Z
+- **Project pages** with details, images, and links
+- **Live statistics** calculated from the project data
+- **Responsive design** for desktop, tablet, and mobile
 
-## Built With
+## Tech Stack
 
 - **HTML5**
 - **CSS3**
 - **Vanilla JavaScript (ES6+ modules)**
 
-**No frameworks, no backend, no build step.**
+No frameworks, no backend, and no build step.
 
----
+## Getting Started
 
-## Folder Structure
-
-```
-project-library/
-├── index.html            # Overview: intro, project count, statistics
-├── library.html          # Search, filters, sorting, project grid
-├── about.html            # About the website and the developer
-├── project.html          # Single project page (project.html?id=...)
-├── css/
-│   ├── style.css         # Design system and components
-│   └── responsive.css    # Mobile and tablet layout
-├── js/
-│   ├── chrome.js         # Shared navbar and mobile menu
-│   ├── home.js           # Overview page logic
-│   ├── library.js        # Library page logic
-│   ├── project.js        # Project page logic
-│   ├── components.js     # Card and project page templates
-│   ├── filters.js        # Search, filter, and sort logic
-│   └── data/
-│       ├── index.js              # Combines all collections
-│       ├── freecodecamp.js
-│       ├── javascript.js
-│       ├── ui-experiments.js
-│       ├── personal-projects.js
-│       └── other-learning.js
-├── assets/
-│   ├── images/           # Thumbnails and screenshots
-│   └── icons/
-└── projects/             # Optional: the project files themselves
-```
-
----
-
-## Run Locally
-
-The site uses native ES modules, so it **must be served over HTTP**. Opening `index.html` directly from the file system will not work.
+The site uses native ES modules, so it needs to be served over HTTP.
 
 ```bash
-# From the project folder, pick one:
 python3 -m http.server 8000
-npx serve
 ```
 
 Then open **http://localhost:8000**.
-
-The **Live Server** extension in VS Code also works.
-
----
-
-## Adding a Project
-
-1. **Open** the right file in `js/data/` (for example `javascript.js`).
-2. **Copy** an existing record and change its values.
-3. **Optional:** add a thumbnail to `assets/images/` and set the `thumbnail` path.
-
-The project appears on the site automatically.
-
-```javascript
-{
-  id: "js-weather-app",              // must be unique
-  title: "Weather App",
-  description: "Shows the forecast for a searched city.",
-  category: "Web App",
-  source: "Tutorial",
-  technologies: ["HTML", "CSS", "JavaScript"],
-  concepts: ["Fetch API", "Async/await"],
-  level: "Intermediate",
-  status: "Completed",
-  thumbnail: "assets/images/weather-app.png",
-  images: ["assets/images/weather-app-1.png"],
-  demoUrl: "https://...",
-  sourceUrl: "https://github.com/...",
-  completedAt: "2025-06-01",
-  featured: false,
-  notes: "What I learned while building it."
-}
-```
-
-### Data Fields
-
-| Field | Required | Description |
-| --- | --- | --- |
-| `id` | **Yes** | Unique identifier, used in the project page URL |
-| `title` | **Yes** | Project name |
-| `status` | **Yes** | `In Progress`, `Completed`, or `Archived` |
-| `description` | No | Short summary |
-| `category` | No | Project type, such as Web App or UI Experiment |
-| `source` | No | Learning source, such as freeCodeCamp or Tutorial |
-| `technologies` | No | Array of technologies used |
-| `concepts` | No | Array of concepts practiced |
-| `level` | No | `Beginner`, `Intermediate`, or `Advanced` |
-| `thumbnail` | No | Relative path to the card image |
-| `images` | No | Array of screenshots for the project page |
-| `demoUrl` | No | Link to the live project |
-| `sourceUrl` | No | Link to the repository |
-| `completedAt` | No | Date as `YYYY-MM-DD` |
-| `featured` | No | Highlights the card |
-| `notes` | No | Lessons learned |
-
-Optional fields can be left out. The interface hides whatever is missing.
-
-### Adding a New Collection
-
-1. **Create** `js/data/my-collection.js` with `export default [ ... ]`.
-2. **Import** it in `js/data/index.js`.
-3. **Add** one line to the `collections` object.
-
-The **collection** of each project comes from the data file it lives in, so no project is ever duplicated.
-
----
-
-## Customizing
-
-- **Colors and fonts:** edit the variables at the top of `css/style.css`.
-- **Navbar links:** edit the `links` list in `js/chrome.js`.
-- **About page:** edit the text and links directly in `about.html`.
-- **Placeholders:** the sample projects, the GitHub link, and parts of the About page are placeholders. **Replace them with your own.**
-
----
-
-## Deployment
-
-The project is fully static, so it works on any static host.
-
-**GitHub Pages**
-
-1. Push the project to a GitHub repository.
-2. Go to **Settings → Pages**.
-3. Set the source to the **main** branch and the **/ (root)** folder.
-4. Save, and your site will be live in a minute or two.
-
-**Vercel or Netlify**
-
-1. Import the repository.
-2. Leave the **build command** empty.
-3. Set the **output directory** to `.`
-
----
-
-## Design
-
-The interface uses a dark mauve palette with **Bebas Neue** for headings, **Manrope** for body text, and **JetBrains Mono** for small details. Fonts load from Google Fonts.
-
----
 
 ## License
 
