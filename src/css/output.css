@@ -197,9 +197,6 @@
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
   }
-  .mt-50 {
-    margin-top: calc(var(--spacing) * 50);
-  }
   .mr-5 {
     margin-right: calc(var(--spacing) * 5);
   }
@@ -223,6 +220,9 @@
   }
   .h-20 {
     height: calc(var(--spacing) * 20);
+  }
+  .h-25 {
+    height: calc(var(--spacing) * 25);
   }
   .h-27 {
     height: calc(var(--spacing) * 27);
@@ -302,11 +302,11 @@
   .gap-6 {
     gap: calc(var(--spacing) * 6);
   }
+  .gap-20 {
+    gap: calc(var(--spacing) * 20);
+  }
   .gap-25 {
     gap: calc(var(--spacing) * 25);
-  }
-  .gap-50 {
-    gap: calc(var(--spacing) * 50);
   }
   :where(.space-x-4 > :not(:last-child)) {
     --tw-space-x-reverse: 0;
@@ -340,9 +340,6 @@
   }
   .py-4 {
     padding-block: calc(var(--spacing) * 4);
-  }
-  .py-8 {
-    padding-block: calc(var(--spacing) * 8);
   }
   .pb-2 {
     padding-bottom: calc(var(--spacing) * 2);
@@ -417,6 +414,18 @@
     }
     .md\:justify-start {
       justify-content: flex-start;
+    }
+    .md\:gap-25 {
+      gap: calc(var(--spacing) * 25);
+    }
+    .md\:gap-30 {
+      gap: calc(var(--spacing) * 30);
+    }
+    .md\:gap-40 {
+      gap: calc(var(--spacing) * 40);
+    }
+    .md\:gap-45 {
+      gap: calc(var(--spacing) * 45);
     }
     .md\:gap-50 {
       gap: calc(var(--spacing) * 50);
