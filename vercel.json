@@ -2,9 +2,6 @@
   "cleanUrls": true,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [
-    { "source": "/library", "destination": "/src/pages/library.html" }
-  ],
   "redirects": [
     { "source": "/src/pages/library", "destination": "/library", "permanent": true },
     { "source": "/src/pages/library.html", "destination": "/library", "permanent": true }

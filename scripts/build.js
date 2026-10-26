@@ -66,6 +66,11 @@ async function build() {
     });
   }
 
+  fs.copyFileSync(
+    path.join(outputDirectory, "src", "pages", "library.html"),
+    path.join(outputDirectory, "library.html"),
+  );
+
   await minifyDirectory(outputDirectory);
   console.log(`Minified deployment files written to ${outputDirectory}`);
 }
