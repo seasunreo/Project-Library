@@ -9,7 +9,7 @@ const projects_data = {
             description: "An experimental dashboard interface.",
             tech: ["HTML", "Tailwind CSS", "JavaScript"],
             image: "/public/Personal Project/callmestock.png",
-            link: "#"
+            link: "https://github.com/seasunreo/Project-Library/tree/main/projects/callmestock"
         }
     ]
 }
