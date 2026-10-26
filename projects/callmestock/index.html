@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eef2ec">
+  <title>StockWise — Multi-branch Reorder Planner</title>
+  <link rel="stylesheet" href="css/output.css">
+</head>
+<body class="min-h-screen bg-[var(--bg)] text-[var(--ink)]">
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand" aria-label="StockWise">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span class="brand-copy">
+          <span class="brand-name">callmestock</span>
+          <span class="brand-caption">Branch planning</span>
+        </span>
+      </div>
+      <div class="topbar-context">
+        <span class="context-label">Inventory planning</span>
+        <span class="context-divider" aria-hidden="true">/</span>
+        <span>Overview</span>
+      </div>
+      <div class="live-indicator"><span aria-hidden="true"></span>Plan updates live</div>
+    </header>
+
+    <main class="workspace">
+      <section class="page-heading">
+        <div>
+          <p class="eyebrow">Three branches <span aria-hidden="true">·</span> One clear plan</p>
+          <h1>Branch stock planner</h1>
+          <p class="page-subtitle">Review stock health, balance inventory, and plan purchases in one place.</p>
+        </div>
+      </section>
+
+      <section class="settings-panel panel" aria-labelledby="settings-title">
+        <div class="panel-heading compact-heading">
+          <div>
+            <p class="section-kicker">Fine-tune the plan</p>
+            <h2 id="settings-title">Planning settings</h2>
+          </div>
+          <button class="btn reset-btn" id="reset" type="button">Reset demo data</button>
+        </div>
+        <div class="settings-fields">
+          <label class="setting">
+            <span class="setting-heading">Safety stock <span class="setting-value"><output id="safetyOut"></output> days</span></span>
+            <input type="range" id="safety" min="0" max="14" aria-label="Safety stock days">
+            <span class="range-hint"><span>0 days</span><span>14 days</span></span>
+          </label>
+          <label class="setting">
+            <span class="setting-heading">Review period <span class="setting-value"><output id="reviewOut"></output> days</span></span>
+            <input type="range" id="review" min="7" max="30" aria-label="Review period days">
+            <span class="range-hint"><span>7 days</span><span>30 days</span></span>
+          </label>
+          <label class="setting budget-setting" for="budget">
+            <span class="setting-heading">Purchasing budget</span>
+            <span class="money-input"><span aria-hidden="true">₱</span><input type="number" id="budget" min="0" step="1000" aria-label="Purchasing budget in pesos"></span>
+          </label>
+        </div>
+        <details class="how">
+          <summary>How the plan works</summary>
+          <div class="how-content">
+            <p>Reorder point = sales per day × (lead time + safety days). Target = sales per day × (lead + safety + review days).</p>
+            <p>Branches holding more than 1.5× their target donate stock to branches at or below their reorder point. Only the remaining shortfall is bought, rounded up to the supplier's minimum order, most urgent first until the budget runs out.</p>
+          </div>
+        </details>
+      </section>
+
+      <section class="kpis grid gap-4 sm:grid-cols-2 xl:grid-cols-4" id="kpis" aria-label="Summary"></section>
+
+      <section class="panel stock-panel" aria-labelledby="stock-title">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Current inventory</p>
+            <h2 id="stock-title">Stock position</h2>
+            <p class="muted">Edit on hand, incoming, or sales per day. The plan updates immediately.</p>
+          </div>
+        </div>
+        <div class="stock-toolbar" aria-label="Filter stock table">
+          <label class="filter-search">
+            <span class="visually-hidden">Search items</span>
+            <input type="search" id="stockSearch" placeholder="Search items..." autocomplete="off">
+          </label>
+          <label class="filter-select">
+            <span>Branch</span>
+            <select id="branchFilter" aria-label="Filter by branch">
+              <option value="">All branches</option>
+              <option value="Main">Main</option>
+              <option value="North">North</option>
+              <option value="South">South</option>
+            </select>
+          </label>
+          <label class="filter-select">
+            <span>Status</span>
+            <select id="statusFilter" aria-label="Filter by stock status">
+              <option value="">All statuses</option>
+              <option value="Stockout risk">Stockout risk</option>
+              <option value="Reorder now">Reorder now</option>
+              <option value="Overstock">Overstock</option>
+              <option value="Healthy">Healthy</option>
+            </select>
+          </label>
+          <label class="inline"><input type="checkbox" id="onlyAction"> <span>Needs action</span></label>
+          <output class="stock-count" id="stockCount" aria-live="polite"></output>
+        </div>
+        <div class="scroll"><table id="stock"></table></div>
+      </section>
+
+      <div class="action-grid">
+        <section class="panel action-panel" aria-labelledby="transfers-title">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">Rebalance first</p>
+              <h2 id="transfers-title">Branch transfers</h2>
+              <p class="muted">Cover shortages by moving available surplus.</p>
+            </div>
+          </div>
+          <ul id="transfers" class="cards"></ul>
+        </section>
+
+        <section class="panel action-panel" aria-labelledby="orders-title">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">Then replenish</p>
+              <h2 id="orders-title">Purchase orders</h2>
+              <p class="muted">Funded orders grouped by supplier.</p>
+            </div>
+            <button class="btn primary" id="csv" type="button">Download CSV</button>
+          </div>
+          <div id="orders"></div>
+          <div class="deferred-heading">
+            <div>
+              <h3>Postponed orders</h3>
+              <p class="muted">Needs a higher budget to fund.</p>
+            </div>
+          </div>
+          <ul id="deferred" class="cards"></ul>
+        </section>
+      </div>
+    </main>
+    <footer class="app-footer">StockWise <span aria-hidden="true">·</span> Multi-branch reorder planner</footer>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
