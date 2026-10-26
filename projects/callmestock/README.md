@@ -4,7 +4,7 @@ A front-end-only dashboard that helps a small multi-branch retailer decide what 
 
 ## About this project
 
-This project was originally created to test how well Claude AI can help develop a real application. It also served as a way to explore wider use of JavaScript in a front-end-only dashboard: state management, derived calculations, event handling, dynamic rendering, and browser storage, all without a framework.
+This project was originally created to refresh my knowledge in programming and understand how Claude AI can help in developing a real application. It also served as my way to explore wider use of JavaScript in a front-end-only dashboard and understand its functions: state management, derived calculations, event handling, dynamic rendering, and browser storage, all without a framework.
 
 ## The question it answers
 
