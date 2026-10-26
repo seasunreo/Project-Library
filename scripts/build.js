@@ -1,6 +1,6 @@
 const fs = require("node:fs");
 const path = require("node:path");
-const CleanCSS = require("clean-css");
+const { execFileSync } = require("node:child_process");
 const { minify: minifyHtml } = require("html-minifier-terser");
 const { minify: minifyJavaScript } = require("terser");
 
@@ -19,15 +19,6 @@ async function minifyFile(filePath) {
       removeComments: true,
     });
     fs.writeFileSync(filePath, minified);
-    return;
-  }
-
-  if (filePath.endsWith(".css")) {
-    const result = new CleanCSS().minify(source);
-    if (result.errors.length > 0) {
-      throw new Error(`Could not minify ${filePath}: ${result.errors.join("; ")}`);
-    }
-    fs.writeFileSync(filePath, result.styles);
     return;
   }
 
@@ -51,6 +42,16 @@ async function minifyDirectory(directory) {
   }
 }
 
+function buildStylesheet(inputPath, outputPath) {
+  const tailwindPackage = require.resolve("@tailwindcss/cli/package.json");
+  const tailwindCli = path.join(path.dirname(tailwindPackage), "dist", "index.mjs");
+  execFileSync(
+    process.execPath,
+    [tailwindCli, "-i", inputPath, "-o", outputPath, "--minify"],
+    { cwd: projectRoot, stdio: "inherit" },
+  );
+}
+
 async function build() {
   fs.rmSync(outputDirectory, { recursive: true, force: true });
   fs.mkdirSync(outputDirectory, { recursive: true });
@@ -69,6 +70,15 @@ async function build() {
   fs.copyFileSync(
     path.join(outputDirectory, "src", "pages", "library.html"),
     path.join(outputDirectory, "library.html"),
+  );
+
+  buildStylesheet(
+    path.join(projectRoot, "src", "css", "input.css"),
+    path.join(outputDirectory, "src", "css", "output.css"),
+  );
+  buildStylesheet(
+    path.join(projectRoot, "projects", "callmestock", "css", "input.css"),
+    path.join(outputDirectory, "projects", "callmestock", "css", "output.css"),
   );
 
   await minifyDirectory(outputDirectory);
