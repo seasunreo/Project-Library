@@ -1,4 +1,4 @@
-# StockWise — Multi-branch Reorder Planner
+# CallmeStock — Multi-branch Reorder Planner
 
 A front-end-only dashboard that helps a small multi-branch retailer decide what to move, what to buy, and what to postpone. It is built with plain HTML, Tailwind CSS, and JavaScript.
 
