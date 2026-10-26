@@ -4,22 +4,22 @@ const Developer_Data = {
         stats: [
             { 
                 label: "Projects Created", 
-                value: "4+",
+                value: "1",
                 featured: true
             },
             { 
-                label: "Months of Experience", 
-                value: "6",
+                label: "Projects Completed", 
+                value: "1",
                 featured: false
             },
             { 
-                label: "Lines of Code", 
-                value: "10k+",
+                label: "In Progress", 
+                value: "0",
                 featured: false
             },
             { 
-                label: "Cup of Iced Coffee", 
-                value: "1.1k+",
+                label: "Technologies", 
+                value: "3",
                 featured: false
             }
         ]
